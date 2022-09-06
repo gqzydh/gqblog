@@ -13,18 +13,18 @@ cd docs/.vuepress/dist
 #echo 'b.gqzydh.github.io' > CNAME
 if [ -z "$VDOING" ]; then
   msg='deploy'
-  githubUrl=git@github.com:gqzydh/gqblog.git
+  githubUrl=git@github.com:gqzydh/gqzydh.github.io.git
 else
   msg='来自 github actions的自动部署'
-  githubUrl=https://gqzydh:${VDOING}@github.com/gqzydh/gqblog.git
+  githubUrl=https://gqzydh:${VDOING}@github.com/gqzydh/gqzydh.github.io.git
   git config --global user.name "gqzydh"
   git config --global user.email "gqzydh@163.com"
 fi
 git init
 git add -A
 git commit -m "${msg}"
-git push -f $githubUrl master:gh-pages # 推送到github
-#git push -f git@github.com:gqzydh/gqblog.git master:gh-pages
+git push -f $githubUrl main:gh-pages # 推送到github
+#git push -f git@github.com:gqzydh/gqblog.git main:gh-pages
 
 
 # deploy to coding
@@ -36,7 +36,7 @@ git push -f $githubUrl master:gh-pages # 推送到github
 #fi
 #git add -A
 #git commit -m "${msg}"
-#git push -f $codingUrl master # 推送到coding
+#git push -f $codingUrl main # 推送到coding
 
 cd - # 退回开始所在目录
 rm -rf docs/.vuepress/dist
